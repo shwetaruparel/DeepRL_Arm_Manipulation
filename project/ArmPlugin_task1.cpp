@@ -270,28 +270,25 @@ void ArmPlugin::onCollisionMsg(ConstContactsPtr &contacts)
 		/
 		*/
 		// REWARD when collision with the Prop
-      if (strcmp(contacts->contact(i).collision1().c_str(), COLLISION_ITEM) == 0   ) 
-        {	
-          //Any part of the arm touching the prop will recieve the award to make it achieve 90% asap
-          if(strcmp(contacts->contact(i).collision2().c_str(), COLLISION_ARM) == 0 || strcmp(contacts->contact(i).collision2().c_str(),COLLISION_POINT ) == 0)			{
-          		if (DEBUG1) printf("I hit the prop, SUCCESS \n");
-			
-          		rewardHistory = REWARD_WIN;
-      			endEpisode = true;
-          }
-        }
-      	else
-        {
-          	if (DEBUG1) printf("Missed the prop Reward %f \n", rewardHistory);
-	
-          	rewardHistory = REWARD_LOSS ;
-
-			endEpisode = false;
-        }
-			
-          	newReward  = true;
-
-			return;
+      		if (strcmp(contacts->contact(i).collision1().c_str(), COLLISION_ITEM) == 0   ) 
+        	{	
+          		//Any part of the arm touching the prop will recieve the award to make it achieve 90% asap
+          		if(strcmp(contacts->contact(i).collision2().c_str(), COLLISION_ARM) == 0 || strcmp(contacts->contact(i).collision2().c_str(),COLLISION_POINT ) == 0)			
+			{
+          			if (DEBUG1) printf("I hit the prop, SUCCESS \n");
+			 	rewardHistory = REWARD_WIN;
+      				endEpisode = true;
+          		}
+        	
+      			else
+        		{
+          			if (DEBUG1) printf("Missed the prop Reward %f \n", rewardHistory);
+	         		rewardHistory = REWARD_LOSS ;	
+				endEpisode = false;
+          			newReward  = true;
+				return;
+			}
+		}
 	}
 }
 
