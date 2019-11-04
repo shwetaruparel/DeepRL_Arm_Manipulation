@@ -4,6 +4,11 @@
 Refer the documentation about the project and information about HyperParameters and Result here - 
 https://github.com/shwetaruparel/DeepRL_Arm_Manipulation/blob/master/DeepRLArm.pdf
 
+***Refer to the project folder and find two files 
+ArmPlugin_task1.cpp
+ArmPlugin_task2.cpp
+
+***Take each file one by one and copy the content to ArnPlugin.cpp in gazebo folder, build the directory and see the results for task1 and task2 respectively.
 
 This project is based on the Nvidia open source project "jetson-reinforcement" developed by [Dustin Franklin](https://github.com/dusty-nv). The goal of the project is to create a DQN agent and define reward functions to teach a robotic arm to carry out two primary objectives:
 
